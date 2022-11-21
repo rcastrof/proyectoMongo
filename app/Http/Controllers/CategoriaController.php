@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
-use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts= Post::all();
-        return view('posts.index', compact('posts'));
+        $categorias = Categoria::all();
+        return view('categorias.index',compact('categorias'));
     }
 
     /**
@@ -26,8 +25,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all();
-        return view('posts.create', compact('categorias'));
+
+        return view('categorias.create');
+
     }
 
     /**
@@ -39,24 +39,19 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'categoria_id' => 'required',
+            'name' => 'required'
         ]);
-
-        Post::create([
-            'name'=> $request->name,
-            'categoria_id' => $request->categoria_id
-        ]);
-        return redirect()->route('posts.index');
+        Categoria::create($request->only('name'));
+        return redirect()->route('categorias.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Categoria $categoria)
     {
         //
     }
@@ -64,39 +59,39 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Categoria $categoria)
     {
-        return view("posts.edit", compact('post'));
+        return view("categorias.edit", compact('categoria'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Categoria $categoria)
     {
         $request->validate([
             'name' => 'required'
         ]);
-        $post->update($request->only('name'));
-        return redirect()->route('posts.index');
+        $categoria->update($request->only('name'));
+        return redirect()->route('categorias.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Categoria $categoria)
     {
-        $post->delete();
-        return redirect()->route('posts.index');
+        $categoria->delete();
+        return redirect()->route('categorias.index');
     }
 }

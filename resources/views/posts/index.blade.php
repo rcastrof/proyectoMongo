@@ -11,22 +11,30 @@
                         <a href="{{ route('posts.create') }}" class="btn btn-primary"> Crear post</a>
                         <div class="mt-3">
                             <h3>Posts</h3>
-                            <ul class="list-group">
-                                @forelse($posts as $post)
-                                    <li class="list-group-item">{{ $post->name }}</li>
-                                    <span class="float-rigth d-flex">
-                                        <a href="{{ route('posts.edit', [$post]) }}"
-                                            class="btn btn-warning btn-sm mr-2">Editar</a>
-                                            <form action="{{route('posts.destroy',[$post])}}" method="POST">
-                                            @csrf
-                                            @method("DELETE")
-                                            <button class="btn btn-danger bnt-sm">Delete</button>
-                                        </form>
-                                    </span>
-                                @empty
-                                    <li class="list-group-item">No hay registros</li>
+                            <table class="table">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Categoria</th>
+                                    @forelse ($posts as $post)
+                                <tr>
+                                    <td>{{ $post->name }}</td>
+                                    <td>{{ $post->categoria_id}}</td>
+                                </tr>
+                                <td class="d-flex">
+                                    <a href="{{route('posts.edit',[$post])}}"
+                                    class="btn btn-warning btn-sm mr-2"
+                                    >Editar</a>
+                                    <form action="{{route('posts.destroy',[$post])}}">
+                                    @csrf
+                                    @method("DELETE")
+                                    <button class="btn btn-danger btn-sm">Borrar</button>
+                                </form>
+                                </td>
+                            @empty
+                                <li class="list-group-item">Sin posts</li>
                                 @endforelse
-                            </ul>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
