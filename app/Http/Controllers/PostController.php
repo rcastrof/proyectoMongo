@@ -62,7 +62,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view("posts.edit", compact('post'));
     }
 
     /**
@@ -74,7 +74,11 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+        $post->update($request->only('name'));
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -85,6 +89,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }
