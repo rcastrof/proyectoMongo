@@ -27,6 +27,11 @@
                                     <form action="{{route('posts.destroy',[$post])}}">
                                     @csrf
                                     @method("DELETE")
+                                    <td>
+                                        <p><strong>foto:</strong></p>
+                                        <img src="{{asset($post->foto) }}" alt="image" width="200px" >
+                                    </td>
+                                    <br>
                                     <button class="btn btn-danger btn-sm">Borrar</button>
                                 </form>
                                 </td>

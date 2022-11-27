@@ -36,18 +36,25 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
+        $post = request()->except('_token');
         $request->validate([
             'name' => 'required',
             'categoria_id' => 'required',
+            'foto' => 'required|image',
         ]);
+        $fileName = time().$request->file('foto')->getClientOriginalName();
+        $path = $request->file('foto')->storeAs('uploads', $fileName , 'public');
 
-        Post::create([
-            'name'=> $request->name,
-            'categoria_id' => $request->categoria_id
-        ]);
-        return redirect()->route('posts.index');
+        $post = [
+            'name' => $request->input('name'),
+            'foto' => '/storage/'.$path,
+            'categoria_id' => $request->get('categoria'),
+            /* 'user_id' =>  auth()->user()->id, */
+        ];
+        Post::insert($post);
+        return redirect()->route('posts.index',$post);
     }
 
     /**

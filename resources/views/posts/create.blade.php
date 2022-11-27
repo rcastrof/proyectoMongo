@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Crear post') }}</div>
 
                 <div class="card-body">
-                   <form action="{{route('posts.store')}}" method="POST">
+                   <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name">Texto</label>
@@ -20,10 +20,18 @@
                             @forelse ($categorias as $categoria )
                             <option value="{{$categoria->id}}">{{$categoria->name}}</option>
                             @empty
-
                             @endforelse
                         </select>
                     </div>
+                    <label>
+                        Imagen:<br>
+                        <input type="file" required name="foto" id="foto" accept="image/*">
+                        @error('foto')
+                    <br>
+                    <small class="text-danger">{{$message}}</small>
+                    <br>
+                    @enderror
+                    </label>
                     <button class="btn btn-primary">Guardar</button>
                 </form>
                    </ul>
