@@ -27,4 +27,23 @@ class HomeController extends Controller
         $posts = Post::paginate();
         return view('home', compact('posts'));
     }
+    public function search(Request $request)
+    {
+        $output ="";
+        $post=Post::where('name','Like','%'.$request->search.'%')->get();
+        foreach($post as $post)
+        {
+            $output.=
+            '<div class="card" style="display:inline-block">
+                <td>'.$post->name.'</td>
+                <br>
+                <td>'.$post->categoria->name.'</td>
+                <br>
+                    <th>
+                        <img src="{{'.asset($post->foto).'}}" alt="image" width="200px">
+                    </th>
+            </div>';
+        }
+        return response($output);
+    }
 }
