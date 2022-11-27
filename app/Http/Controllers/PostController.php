@@ -50,8 +50,8 @@ class PostController extends Controller
         $post = [
             'name' => $request->input('name'),
             'foto' => '/storage/'.$path,
-            'categoria_id' => $request->get('categoria'),
-            /* 'user_id' =>  auth()->user()->id, */
+            'categoria_id' => $request->get('categoria_id'),
+            'user_id' =>  auth()->user()->id,
         ];
         Post::insert($post);
         return redirect()->route('posts.index',$post);
