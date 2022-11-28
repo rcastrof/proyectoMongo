@@ -34,14 +34,22 @@ class HomeController extends Controller
         foreach($post as $post)
         {
             $output.=
-            '<div class="card" style="display:inline-block">
-                <td>'.$post->name.'</td>
-                <br>
-                <td>'.$post->categoria->name.'</td>
-                <br>
-                    <th>
-                        <img src="'.$post->foto.'" alt="image" width="200px">
-                    </th>
+            '<div class="cardpost">
+                <div class="heading-card">
+                    <td>'.$post->name.'</td>
+                </div>
+
+                <div class="headingcategoria-card">
+                    <td>'.$post->categoria->name.'</td>
+                </div>
+
+                <div class="card-bodypost">
+                    <p>Agregar descripcion</p>
+                </div>
+
+                <div class="">
+                    <img src="'.$post->foto.'" alt="image" width="200px">
+                </div>
             </div>';
         }
         return response($output);

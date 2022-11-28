@@ -89,7 +89,7 @@
                                         <td>{{ $post->name }}</td>
                                     </div>
                                     <div class="headingcategoria-card">
-                                        <td>Categoria: {{ $post->categoria->name }}</td>
+                                        <td>{{ $post->categoria->name }}</td>
                                     </div>
                                     <div class="card-bodypost">
                                         <p>Agregar descripcion</p>
