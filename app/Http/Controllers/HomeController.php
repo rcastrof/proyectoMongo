@@ -40,7 +40,7 @@ class HomeController extends Controller
                 <td>'.$post->categoria->name.'</td>
                 <br>
                     <th>
-                        <img src="{{'.asset($post->foto).'}}" alt="image" width="200px">
+                        <img src="'.$post->foto.'" alt="image" width="200px">
                     </th>
             </div>';
         }

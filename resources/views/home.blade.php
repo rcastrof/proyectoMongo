@@ -134,4 +134,5 @@
             });
         })
     </script>
+    <script type="text/javascript" src="{{ asset('/js/filtro_post_nombre.js') }}"></script>
 @endsection
