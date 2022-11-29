@@ -30,6 +30,10 @@
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Chill Pictures
                 </a>
+                <a href="{{route('posts.index')}}">Mis Posts</a> &nbsp;&nbsp;
+                <a href="{{route('categorias.index')}}">Categorias</a>
+
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -85,13 +89,10 @@
         <main class="py-4">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-4">
-                    </div>
                     @yield('content')
                 </div>
             </div>
         </main>
     </div>
 </body>
-
 </html>
