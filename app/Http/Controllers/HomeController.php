@@ -48,7 +48,7 @@ class HomeController extends Controller
                 </div>
 
                 <div class="">
-                    <img src="'.$post->foto.'" alt="image" width="200px">
+                    <img src="'.$post->foto.'" alt="image" width="200px" >
                 </div>
             </div>';
         }

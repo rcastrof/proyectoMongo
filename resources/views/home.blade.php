@@ -15,9 +15,7 @@
 
         }
 
-        .container {
-
-        }
+        .container {}
 
         .heading {
             text-align: center;
@@ -57,7 +55,13 @@
             box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
         }
 
-
+        .imagenDiv {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            width: 50%;
+        }
     </style>
     <div class="row justify-content-center">
         <div class="col-md-">
@@ -80,10 +84,9 @@
                     <div id="Content" class="searchdata"></div>
                     <br>
 
-                        <div class="alldata">
-                            <div class="row">
-                                @forelse ($posts as $post)
-
+                    <div class="alldata">
+                        <div class="row">
+                            @forelse ($posts as $post)
                                 <div class="cardpost">
                                     <div class="heading-card">
                                         <td>{{ $post->name }}</td>
@@ -94,16 +97,16 @@
                                     <div class="card-bodypost">
                                         <p>Agregar descripcion</p>
                                     </div>
-                                    <div class="">
+                                    <div class="imagenDiv">
                                         <img src="{{ asset($post->foto) }}" alt="image" width="200px">
                                     </div>
                                 </div>
 
-                                @empty
-                                    <li class="list-group-item">Sin posts</li>
+                            @empty
+                                <li class="list-group-item">Sin posts</li>
 
-                            </div>
                         </div>
+                    </div>
                     @endforelse
                 </div>
             </div>
