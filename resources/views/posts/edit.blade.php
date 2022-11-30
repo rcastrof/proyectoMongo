@@ -12,9 +12,10 @@
                     @csrf
                     @method("PUT")
                     <div class="form-group">
-                        <label for="name">Texto</label>
+                        <label for="name">Titulo</label>
                         <input type="text" name="name" class="form-control" id="name" value="{{$post->name}}">
                     </div>
+<br>
                     <button class="btn btn-primary">Update</button>
                 </form>
                 </div>

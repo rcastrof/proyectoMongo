@@ -1,9 +1,9 @@
 @extends('layouts.appIn')
 
 @section('content')
-{{-- css --}}
-<link href="{{('/css/post/home_post.css') }}" rel="stylesheet" type="text/css"/>
-{{--  --}}
+    {{-- css --}}
+    <link href="{{ '/css/post/home_post.css' }}" rel="stylesheet" type="text/css" />
+    {{--  --}}
     <div class="row justify-content-center">
         <div class="col-md-">
             <div class="card">
@@ -28,26 +28,19 @@
                         <div class="row">
                             @forelse ($posts as $post)
                                 <div class="cardpost">
+                                    <a style="text-decoration: none" href="{{ route('posts.show', [$post]) }}">
+                                        <div class="heading-card">
+                                            <td>{{ $post->name }}</td>
+                                        </div>
 
-                                    <div class="heading-card">
-                                        <td>{{ $post->name }}</td>
-                                    </div>
+                                        <div class="headingcategoria-card">
+                                            <td>{{ $post->categoria->name }}</td>
+                                        </div>
 
-                                    <div class="headingcategoria-card">
-                                        <td>{{ $post->categoria->name }}</td>
-                                    </div>
-
-                                    <div class="card-bodypost">
-                                        <p>Agregar descripcion</p>
-                                    </div>
-
-                                    <div class="imagenDiv">
-                                        <img src="{{ asset($post->foto) }}" alt="image" width="200px">
-                                    </div>
-
-                                    <a href="{{ route('posts.show', [$post]) }}"
-                                    class="btn btn-warning btn-sm mr-2">Ver
-                                </a>
+                                        <div class="imagenDiv">
+                                            <img src="{{ asset($post->foto) }}" alt="image" width="200px">
+                                        </div>
+                                    </a>
 
                                 </div>
 
@@ -61,5 +54,5 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{('/js/post/filtro_post_nombre.js') }}"></script>
+    <script type="text/javascript" src="{{ '/js/post/filtro_post_nombre.js' }}"></script>
 @endsection
