@@ -1,71 +1,7 @@
 @extends('layouts.appIn')
 
 @section('content')
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-
-        }
-
-        body {
-            background: #fefefe;
-            font-family: sans-serif;
-
-        }
-
-        .container {}
-
-        .heading {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 5px;
-        }
-
-        .row {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-        }
-
-        .cardpost {
-            width: 30%;
-            background: rgb(240, 236, 236);
-            border: 1px solid rgb(4, 4, 4);
-            margin-bottom: 10px;
-            transition: 0.3s;
-        }
-
-        .heading-card {
-            text-align: center;
-            padding: 50px 10px;
-            background: linear-gradient(to right, #0f0f0f, #a5918d);
-            color: #fff;
-        }
-
-        .card-bodypost {
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 18px;
-        }
-
-        .cardpost:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
-        }
-
-        .imagenDiv {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 20px;
-            width: 50%;
-        }
-        .search{
-            margin-bottom: 20px;
-        }
-    </style>
+<link href="{{('/css/indexpost.css') }}" rel="stylesheet" type="text/css"/>
     <div class="row justify-content-center">
         <div class="col-md-">
             <div class="card">
