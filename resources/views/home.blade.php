@@ -41,7 +41,6 @@
                                             <img src="{{ asset($post->foto) }}" alt="image" width="200px">
                                         </div>
                                     </a>
-
                                 </div>
 
                             @empty

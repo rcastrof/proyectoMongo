@@ -36,6 +36,8 @@ class HomeController extends Controller
             $output.=
             '
             <div class="cardpost">
+            <a style="text-decoration: none" href="'.route('posts.show', [$post]).'">
+
                 <div class="heading-card">
                     <td>'.$post->name.'</td>
                 </div>
@@ -44,13 +46,11 @@ class HomeController extends Controller
                     <td>'.$post->categoria->name.'</td>
                 </div>
 
-                <div class="card-bodypost">
-                    <p>Agregar descripcion</p>
-                </div>
-
-                <div class="">
+                <div class="imagenDiv">
                     <img src="'.$post->foto.'" alt="image" width="200px" >
                 </div>
+                </a>
+
             </div>
             ';
         }
