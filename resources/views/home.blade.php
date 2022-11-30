@@ -1,7 +1,9 @@
 @extends('layouts.appIn')
 
 @section('content')
-<link href="{{('/css/indexpost.css') }}" rel="stylesheet" type="text/css"/>
+{{-- css --}}
+<link href="{{('/css/post/home_post.css') }}" rel="stylesheet" type="text/css"/>
+{{--  --}}
     <div class="row justify-content-center">
         <div class="col-md-">
             <div class="card">
@@ -43,6 +45,10 @@
                                         <img src="{{ asset($post->foto) }}" alt="image" width="200px">
                                     </div>
 
+                                    <a href="{{ route('posts.show', [$post]) }}"
+                                    class="btn btn-warning btn-sm mr-2">Ver
+                                </a>
+
                                 </div>
 
                             @empty
@@ -55,5 +61,5 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{{('/js/filtro_post_nombre.js') }}"></script>
+    <script type="text/javascript" src="{{('/js/post/filtro_post_nombre.js') }}"></script>
 @endsection

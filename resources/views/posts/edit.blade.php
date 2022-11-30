@@ -17,7 +17,6 @@
                     </div>
                     <button class="btn btn-primary">Update</button>
                 </form>
-                   </ul>
                 </div>
             </div>
         </div>

@@ -1,32 +1,9 @@
 @extends('layouts.appIn')
 
 @section('content')
-    <style>
-        .left {
-            float: left;
-            padding: 50px 10px;
-            background: linear-gradient(to right, #0f0f0f, #a5918d);
-        }
-
-        .right {
-            float: right;
-            background: rgb(146, 146, 169);
-            width: 60%;
-            height: 90%;
-            text-align: center;
-            padding: 50px 10px;
-            background: linear-gradient(to right, #0f0f0f, #a5918d);
-            color: #fff;
-
-        }
-
-        .main {
-            background: rgb(240, 236, 236);
-            margin-bottom: 20px;
-
-        }
-    </style>
-
+ {{-- css --}}
+<link href="{{('/css/post/mis_post.css') }}" rel="stylesheet" type="text/css"/>
+{{--  --}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -60,7 +37,6 @@
                                             <img src="{{ asset($post->foto) }}" class="center" alt="image"
                                                 width="200px">
                                         </div>
-
 
                                     </div>
 

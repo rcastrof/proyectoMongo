@@ -1,0 +1,23 @@
+.left {
+    float: left;
+    padding: 50px 10px;
+    background: linear-gradient(to right, #0f0f0f, #a5918d);
+}
+
+.right {
+    float: right;
+    background: rgb(146, 146, 169);
+    width: 60%;
+    height: 90%;
+    text-align: center;
+    padding: 50px 10px;
+    background: linear-gradient(to right, #0f0f0f, #a5918d);
+    color: #fff;
+
+}
+
+.main {
+    background: rgb(240, 236, 236);
+    margin-bottom: 20px;
+
+}
