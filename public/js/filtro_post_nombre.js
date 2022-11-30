@@ -1,5 +1,3 @@
-console.log('ola')
-
 const search = document.getElementById("search");
 
 $('#search').on('keyup', function() {

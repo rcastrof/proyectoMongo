@@ -62,6 +62,9 @@
             margin-bottom: 20px;
             width: 50%;
         }
+        .search{
+            margin-bottom: 20px;
+        }
     </style>
     <div class="row justify-content-center">
         <div class="col-md-">
@@ -80,26 +83,30 @@
                             <input type="search" name="search" id="search" placeholder="Buscar" class="form-control">
                         </div>
                     </div>
-
-                    <div id="Content" class="searchdata"></div>
-                    <br>
+                    <div id="Content" class="searchdata row">
+                    </div>
 
                     <div class="alldata">
                         <div class="row">
                             @forelse ($posts as $post)
                                 <div class="cardpost">
+
                                     <div class="heading-card">
                                         <td>{{ $post->name }}</td>
                                     </div>
+
                                     <div class="headingcategoria-card">
                                         <td>{{ $post->categoria->name }}</td>
                                     </div>
+
                                     <div class="card-bodypost">
                                         <p>Agregar descripcion</p>
                                     </div>
+
                                     <div class="imagenDiv">
                                         <img src="{{ asset($post->foto) }}" alt="image" width="200px">
                                     </div>
+
                                 </div>
 
                             @empty
@@ -112,30 +119,5 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript">
-        $('#search').on('keyup', function() {
-            $value = $(this).val();
-            if ($value) {
-                $('.alldata').hide();
-                $('.searchdata').show();
-            } else {
-                $('.alldata').show();
-                $('.searchdata').hide();
-            }
-            $.ajax({
-                type: 'get',
-                url: '{{ URL::to('search') }}',
-                data: {
-                    'search': $value
-                },
-
-                success: function(data) {
-                    console.log(data);
-                    $('#Content').html(data);
-                }
-            });
-        })
-    </script>
     <script type="text/javascript" src="{{('/js/filtro_post_nombre.js') }}"></script>
 @endsection

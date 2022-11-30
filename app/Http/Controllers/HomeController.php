@@ -34,7 +34,8 @@ class HomeController extends Controller
         foreach($post as $post)
         {
             $output.=
-            '<div class="cardpost">
+            '
+            <div class="cardpost">
                 <div class="heading-card">
                     <td>'.$post->name.'</td>
                 </div>
@@ -50,7 +51,8 @@ class HomeController extends Controller
                 <div class="">
                     <img src="'.$post->foto.'" alt="image" width="200px" >
                 </div>
-            </div>';
+            </div>
+            ';
         }
         return response($output);
     }
