@@ -18,6 +18,8 @@
                                 <td>{{ $post->name }}</td>
                                 <br>
                                 <td>{{ $post->categoria->name }}</td>
+                                <br>
+                                <td>{{ $post->descripcion }}</td>
                             </div>
 
                             <div class="left">

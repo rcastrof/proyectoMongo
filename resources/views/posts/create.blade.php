@@ -11,8 +11,12 @@
                    <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="name">Texto</label>
+                        <label for="name">Titulo</label>
                         <input type="text" name="name" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Descripcion</label>
+                        <input type="text" name="descripcion" class="form-control" id="descripcion">
                     </div>
                     <div class="form-group">
                         <label for="categoria_id">Categoria</label>

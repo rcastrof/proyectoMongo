@@ -43,6 +43,7 @@ class PostController extends Controller
         $request->validate([
             'name' => 'required',
             'categoria_id' => 'required',
+            'descripcion' => 'required',
             'foto' => 'required|image',
         ]);
         $fileName = time().$request->file('foto')->getClientOriginalName();
@@ -53,6 +54,7 @@ class PostController extends Controller
             'foto' => '/storage/'.$path,
             'categoria_id' => $request->get('categoria_id'),
             'user_id' =>  auth()->user()->id,
+            'descripcion' => $request->input('descripcion'),
         ];
         Post::insert($post);
         return redirect()->route('posts.index',$post);
