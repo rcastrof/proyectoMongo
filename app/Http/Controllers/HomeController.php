@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::paginate();
-        return view('home', compact('posts'));
+        $categorias = Categoria::all();
+        return view('home', compact('posts', 'categorias'));
     }
     public function search(Request $request)
     {

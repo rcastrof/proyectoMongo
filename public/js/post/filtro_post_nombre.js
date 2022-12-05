@@ -1,4 +1,10 @@
 const search = document.getElementById("search");
+const categoria = document.getElementById("selectCategoria")
+
+$("#selectCategoria").change(function() {
+    var id = $(this).children(":selected").attr("id");
+    console.log(id)
+  });
 
 $('#search').on('keyup', function() {
     $value = $(this).val();
@@ -9,6 +15,7 @@ $('#search').on('keyup', function() {
         $('.alldata').show();
         $('.searchdata').hide();
     }
+
     $.ajax({
         type: 'get',
         url: 'search',
@@ -17,7 +24,6 @@ $('#search').on('keyup', function() {
         },
 
         success: function(data) {
-            console.log(data);
             $('#Content').html(data);
         }
     });
