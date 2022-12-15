@@ -30,8 +30,10 @@
                     Chill Pictures
                 </a>
                 <a href="{{route('posts.index')}}">Mis Posts</a> &nbsp;&nbsp;
+                
+                @if (Auth::user()->role == '1')
                 <a href="{{route('categorias.index')}}">Categorias</a>
-
+                @endif
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
