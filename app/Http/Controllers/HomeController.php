@@ -58,4 +58,17 @@ class HomeController extends Controller
         }
         return response($output);
     }
+    public function selectCategoria(Request $request)
+    {
+        $query = Post::query();
+        $categorias = Categoria::all();
+
+        if ($request->ajax()) {
+            $post = $query->where(['categoria_id'=>$request->selectCategoria])->get();
+            return response()->json(['post'=>$post]);
+        }
+
+        $post = $query->get();
+        return view('home', compact('categorias','post'));
+    }
 }

@@ -21,12 +21,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
-    Route::resource('categorias',App\Http\Controllers\CategoriaController::class)->names('admin.categorias');
+    Route::resource('categorias',App\Http\Controllers\CategoriaController::class)->names('categorias');
 });
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/home',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/search',[App\Http\Controllers\HomeController::class, 'search'])->name('search');
+    Route::get('/selectCategoria',[App\Http\Controllers\HomeController::class, 'selectCategoria'])->name('selectCategoria');
+
 
     Route::resource('posts',App\Http\Controllers\PostController::class);
 });

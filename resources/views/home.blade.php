@@ -19,7 +19,7 @@
                     <div class="container ">
                         <div class="search input-group">
                             <input type="search" name="search" id="search" placeholder="Buscar" class="form-control">
-                            <select class="form-select" id="selectCategoria">
+                            <select class="form-select" name="selectCategoria" id="selectCategoria">
                                 <option selected> Seleccione categoria</option>
                                 @foreach ($categorias as $categoria)
                                 <option value="{{$categoria->id}}">{{$categoria->name}}</option>
