@@ -22,8 +22,6 @@ $('#search').on('keyup', function () {
         }
     });
 })
-
-
 //// filtro por select
 $(document).ready(function(){
     $("#selectCategoria").on('change',function(){
@@ -35,27 +33,8 @@ $(document).ready(function(){
                 'selectCategoria':selectCategoria
             },
             success:function(data){
-                console.log(data);
-                var post = data.post;
-                var html = '';
-                if (post.length > 0)
-                {
-                    for (let i = 0; i < post.length; i++) {
-                        html += '<tr>\
-                                \
-                                <td>'+post[i]['name']+'</td>\
-                                <td>'+post[i]['foto']+'</td>\
-                                <td>'+post[i]['categoria']+'</td>\
-                                <td>'+i+'</td>\
-                                </tr>';
-                    }
-                }
-                else
-                {
-                    html += 'no hay post'
-                }
                 $('.alldata').hide();
-                $('#Content').html(html);
+                $('#Content').html(data);
             }
 
         });

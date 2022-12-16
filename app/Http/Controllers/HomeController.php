@@ -62,10 +62,34 @@ class HomeController extends Controller
     {
         $query = Post::query();
         $categorias = Categoria::all();
+        $output ="";
 
         if ($request->ajax()) {
             $post = $query->where(['categoria_id'=>$request->selectCategoria])->get();
-            return response()->json(['post'=>$post]);
+            foreach($post as $post)
+        {
+            $output.=
+            '
+            <div class="cardpost">
+            <a style="text-decoration: none" href="'.route('posts.show', [$post]).'">
+
+                <div class="heading-card">
+                    <td>'.$post->name.'</td>
+                </div>
+
+                <div class="headingcategoria-card">
+                    <td>'.$post->categoria->name.'</td>
+                </div>
+
+                <div class="imagenDiv">
+                    <img src="'.$post->foto.'" alt="image" width="200px" >
+                </div>
+                </a>
+
+            </div>
+            ';
+        }
+        return response($output);
         }
 
         $post = $query->get();
