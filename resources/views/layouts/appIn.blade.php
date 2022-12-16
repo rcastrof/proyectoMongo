@@ -21,74 +21,75 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 </head>
+<style>
+    main{
+        background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5));
+    }
+    .headerSticky {
+        width: 100%;
+
+    }
+
+    nav {
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+        background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5));    }
+
+    nav ul {
+        background: #000000;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        list-style: none;
+        margin: 20px 30px;
+        color: #ffffff;
+        text-transform: uppercase;
+    }
+</style>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    Chill Pictures
-                </a>
-                <a href="{{route('posts.index')}}">Mis Posts</a> &nbsp;&nbsp;
+        <nav class="navbar">
+            <div class="headerSticky">
+                <ul>
+                    <li onclick="location.href='{{ url('/home') }}'">
+                        Chill Pictures
+                    </li>
+                    <li onclick="location.href='{{ route('posts.index') }}'">Mis Posts</li> &nbsp;&nbsp;
 
-                @if (Auth::user()->role == '1')
-                <a href="{{route('categorias.index')}}">Categorias</a>
-                @endif
+                    @if (Auth::user()->role == '1')
+                        <li onclick="location.href='{{ route('categorias.index') }}'">Categorias</li>
+                    @endif
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                {{ __('Salir') }}
+                            </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
-
         <main class="py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    @yield('content')
-                </div>
-            </div>
+            @yield('content')
         </main>
     </div>
 </body>
+
 </html>
