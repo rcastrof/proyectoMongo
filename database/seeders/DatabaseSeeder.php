@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Seeder con rol de admin.
      *
      * @return void
      */
@@ -26,3 +26,4 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriaSeeder::class);
     }
 }
+

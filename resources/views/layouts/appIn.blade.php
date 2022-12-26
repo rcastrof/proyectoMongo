@@ -22,13 +22,25 @@
 
 </head>
 <style>
+    html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0%;
+    padding: 0;
+    overflow: hidden;
+
+}
     main{
         background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5));
+        min-height: 100%;
+
+
     }
     .headerSticky {
         width: 100%;
 
     }
+
 
     nav {
         width: 100%;
@@ -86,10 +98,10 @@
                 </ul>
             </div>
         </nav>
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
 
+    </div>
+    <main class="py-4">
+        @yield('content')
+    </main>
+</body>
 </html>
